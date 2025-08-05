@@ -3,7 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import { ApolloServer } from "@apollo/server";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-import { expressMiddleware } from "@apollo/server/express4";
+import { expressMiddleware } from "@as-integrations/express5";
 import http from "http";
 import { CommandBus } from "@tshio/command-bus";
 import { QueryBus } from "@tshio/query-bus";
@@ -83,7 +83,7 @@ async function createApp({
   const swaggerDocument = await multiFileSwagger(YAML.load("../swagger/api.yaml"));
   app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   app.use("/api", router);
-  app.use("*", (req, res, next) => next(new NotFoundError("Page not found")));
+  app.use((req, res, next) => next(new NotFoundError("Page not found")));
   app.use(errorHandler);
 
   return app;

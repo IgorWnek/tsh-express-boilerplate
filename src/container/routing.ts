@@ -16,5 +16,10 @@ export async function registerRouting(container: AwilixContainer) {
     // ROUTING_SETUP
   });
 
+  const { createRouter } = await import("../app/router");
+  container.register({
+    router: asFunction(createRouter),
+  });
+
   return container;
 }
