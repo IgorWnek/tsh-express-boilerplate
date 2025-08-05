@@ -2,10 +2,8 @@ import "mocha";
 import { use } from "chai";
 import chaiAsPromised from "chai-as-promised";
 import { DataSource } from "typeorm";
-import "express-async-errors";
 import { createContainer } from "../container";
 import { config } from "../config/db";
-import "express-async-errors";
 
 use(chaiAsPromised);
 

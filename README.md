@@ -8,13 +8,13 @@
   &emsp;
 </p>
 
-##
+---
 
 A highly scalable and a focus on performance and best practices boilerplate code for Nodejs and TypeScript based web applications.
 
 Start a new application in seconds!
 
-##
+---
 
 ### Features
 
@@ -46,16 +46,18 @@ Don't forget to star or fork this if you liked it.
 After checkout of a repository, please perform the following steps in exact sequence:
 
 1. Copy docker-compose.override
-    ```
-    $ cp docker-compose.override.yml.dist docker-compose.override.yml
-    ```
+
+```sh
+cp docker-compose.override.yml.dist docker-compose.override.yml
+```
 
 2. Create `.env` file from `.env.dist`
-    ```
-    $ cp .env.dist .env
-    ```
 
-    Remember to fill up required values in `.env`
+```sh
+cp .env.dist .env
+```
+
+Remember to fill up required values in `.env`
 
 3. Run `npm i`
 
@@ -63,7 +65,7 @@ After checkout of a repository, please perform the following steps in exact sequ
 
 5. Run watch - `npm run watch`
 
-##
+---
 
 ### Dev setup
 
@@ -71,56 +73,56 @@ This app is fully dockerized, so in order to use it you have to have docker and 
 
 1. In order to run the whole app type:
 
-    ```
-    npm run start
-    ```
+```sh
+npm run start
+```
 
 2. In order to watch files for dev purpose type:
 
-    ```
-    npm run watch
-    ```
+```sh
+npm run watch
+```
 
 3. If you need to close all containers run:
 
-    ```
-    npm run down
-    ```
+```sh
+npm run down
+```
 
 4. To get into Docker container's shell:
 
-    ```
-    npm run shell
-    ```
+```sh
+npm run shell
+```
 
-##
+---
 
 ### SonarQube configuration
 
-Before deployment, please ensure that a related SonarQube project has been created. After that set proper repository variables (`SONAR_TOKEN` and `SONAR_HOST_URL`) and properties in `sonar-project.properties` file. 
+Before deployment, please ensure that a related SonarQube project has been created. After that set proper repository variables (`SONAR_TOKEN` and `SONAR_HOST_URL`) and properties in `sonar-project.properties` file.
 
-##
+---
 
 ### Code generation
 
 We're using Plop for routes, models, actions, graphql (queries and mutations), commands and handlers generation.
 
-```
+```sh
 npm run plop
 ```
 
-##
+---
 
 ### Code style
 
 We're using Prettier and ESLint to keep code clean. In order to reformat/check code run:
 
-```
+```sh
 npm run lint
 npm run format
 ```
 
-##
+---
 
 ### Database migrations
 
@@ -128,18 +130,19 @@ Migrations should be stored inside migrations directory.
 
 Easiest way to create a migration is to generate it from entity/ies:
 
-```
+```sh
 npm run generate-migration
 ```
 
 This should generate a migration for all connected entities.
 
-##
+---
 
 #### Adminer setup
 
 Adminer is configured in `docker-compose.override.yml` and should work out of the box on port 8080. To login to adminer use the following values:
-```
+
+```text
 Database type: postgres
 Server: postgres
 User: postgres
@@ -149,11 +152,13 @@ Database: app
 
 Of course, if any of this is changed via configuration or otherwise, then these changes must be reflected here as well.
 
-##
+---
 
 ### GraphQL
+
 Boilerplate has GraphQL support. Apollo server runs as a middleware and should be available locally under:
-```
+
+```text
 http://localhost:1337/graphql
 ```
 
@@ -163,15 +168,15 @@ To add new query/mutation run relevant `plop` commands and then:
 2. Run codegen: `npm run generate-schema`
 3. Restart watcher / API
 
-##
+---
 
 ### Debugging
 
 #### VS Code
 
-There is `launch.json` configuration inside `editors/vsc` directory. Just copy it and create new debugger to make it work with vsc :) 
+There is `launch.json` configuration inside `editors/vsc` directory. Just copy it and create new debugger to make it work with vsc :)
 
-##
+---
 
 ### Tests
 
@@ -180,7 +185,7 @@ There are two types of tests:
 - integration: `npm run integration`
 - units: `npm run units`
 
-##
+---
 
 ### **Issues:**
 
