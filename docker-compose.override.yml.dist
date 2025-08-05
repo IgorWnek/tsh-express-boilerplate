@@ -19,9 +19,15 @@ services:
 
   boilerplate_api:
     volumes: *volumes
+    env_file:
+      - .env
     depends_on:
       - adminer
       - postgres
+
+  redis:
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
 
   adminer:
     image: adminer
