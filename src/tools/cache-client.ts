@@ -54,7 +54,7 @@ class CustomRedisClient implements CacheClient {
 
   public scanByPattern(pattern: string): Promise<string[]> {
     let returnKeys: string[] = [];
-    function scan(cacheClient: ReturnType<typeof createClient>, cursor: number = 0): Promise<any> {
+    function scan(cacheClient: ReturnType<typeof createClient>, cursor: string = "0"): Promise<any> {
       return cacheClient
         .scan(cursor, {
           MATCH: pattern,
@@ -62,7 +62,7 @@ class CustomRedisClient implements CacheClient {
         })
         .then((result) => {
           returnKeys = [...result.keys, ...returnKeys];
-          if (result.cursor === 0) {
+          if (result.cursor === "0") {
             return returnKeys;
           }
           return scan(cacheClient, result.cursor);
